@@ -11,7 +11,6 @@ dp = Dispatcher(bot)
 async def start_command(message: types.Message):
 	await message.answer(
 		"Приветствую! Выбери замок, за который будешь сражаться.",
-		reply=False,
 		reply_markup=kb.choose_castle_on_start()
 	)
 

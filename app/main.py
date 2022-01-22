@@ -1,5 +1,9 @@
 from aiogram import Bot, Dispatcher, types, executor
-from app.config import BOT_API_TOKEN
+from aiogram.types import ParseMode
+
+import keyboard as kb
+import hero as hero
+from config import BOT_API_TOKEN
 
 
 bot = Bot(token=BOT_API_TOKEN)
@@ -8,9 +12,9 @@ dp = Dispatcher(bot)
 
 @dp.message_handler(commands=['start'])
 async def start_command(message: types.Message):
-	await message.reply(
-		"Ну привет",
-		reply=False
+	await message.answer(
+		"Приветствую! Выбери замок, за который будешь сражаться.",
+		reply_markup=kb.choose_castle_on_start()
 	)
 
 
@@ -18,7 +22,7 @@ async def start_command(message: types.Message):
 # Не двигать выше, иначе оно сломается.
 @dp.message_handler()
 async def unknown_command_answer(message: types.Message):
-	await bot.send_message(message.from_user.id, "I don't recognise this command.")
+	await message.answer("I don't recognise this command.")
 
 
 if __name__ == '__main__':

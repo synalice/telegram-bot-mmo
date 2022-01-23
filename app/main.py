@@ -1,9 +1,9 @@
 from aiogram import Bot, Dispatcher, types, executor
 from aiogram.types import ParseMode
 
-import keyboard as kb
-import hero as hero
-from config import BOT_API_TOKEN
+import app.keyboard as kb
+import app.hero as hero
+from app.config import BOT_API_TOKEN
 
 
 bot = Bot(token=BOT_API_TOKEN)

@@ -4,11 +4,13 @@ from sqlalchemy.exc import IntegrityError
 from app.db.db_init import *
 from app.db.db_schemas import TelegramUserProfile
 from concurrent.futures import ThreadPoolExecutor
+from app.utils import make_async
 
 db_thead_pool = ThreadPoolExecutor(max_workers=32)
 
 
-def create_user_sync(user_id, first_name, last_name):
+@make_async(executor=db_thead_pool)
+def register_new_user(user_id, first_name, last_name):
 	session = Session()
 	user = (
 		session
@@ -27,10 +29,4 @@ def create_user_sync(user_id, first_name, last_name):
 		session.commit()
 
 	session.close()
-	return user
-
-
-async def register_new_user(user_id, first_name, last_name):
-	loop = asyncio.get_running_loop()
-	user = await loop.run_in_executor(db_thead_pool, create_user_sync, user_id, first_name, last_name)
 	return user

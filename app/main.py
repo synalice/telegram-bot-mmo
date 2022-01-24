@@ -4,6 +4,7 @@ from aiogram.types import ParseMode
 import app.keyboard as kb
 import app.hero as hero
 from app.config import BOT_API_TOKEN
+from app.db.db_register import register_new_user
 
 
 bot = Bot(token=BOT_API_TOKEN)
@@ -13,8 +14,9 @@ dp = Dispatcher(bot)
 @dp.message_handler(commands=['start'])
 async def start_command(message: types.Message):
 	await message.answer(
-		"Приветствую! Выбери замок, за который будешь сражаться.",
-		reply_markup=kb.choose_castle_on_start()
+		text=register_new_user()
+		# "Приветствую! Выбери замок, за который будешь сражаться.",
+		# reply_markup=kb.choose_castle_on_start()
 	)
 
 

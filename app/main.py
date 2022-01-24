@@ -14,7 +14,7 @@ dp = Dispatcher(bot)
 @dp.message_handler(commands=['start'])
 async def start_command(message: types.Message):
 	await message.answer(
-		text=register_new_user()
+		register_new_user(message.from_user.id, message.from_user.first_name, message.from_user.last_name)
 		# "Приветствую! Выбери замок, за который будешь сражаться.",
 		# reply_markup=kb.choose_castle_on_start()
 	)

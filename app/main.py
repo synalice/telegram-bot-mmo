@@ -2,7 +2,7 @@ from aiogram import Bot, Dispatcher, types, executor
 from aiogram.types import ParseMode
 
 import app.keyboard as kb
-import app.hero as hero
+# import app.hero as hero
 from app.config import BOT_API_TOKEN
 from app.db.db_register import register_new_user
 
@@ -13,11 +13,8 @@ dp = Dispatcher(bot)
 
 @dp.message_handler(commands=['start'])
 async def start_command(message: types.Message):
-	await message.answer(
-		register_new_user(message.from_user.id, message.from_user.first_name, message.from_user.last_name)
-		# "Приветствую! Выбери замок, за который будешь сражаться.",
-		# reply_markup=kb.choose_castle_on_start()
-	)
+	user = await register_new_user(message.from_user.id, message.from_user.first_name, message.from_user.last_name)
+	await message.answer(f"{user.telegram_id, user.telegram_firstname, user.telegram_lastname}")
 
 
 # Ответ на любые неизвестные коммады или сообщения от пользователя

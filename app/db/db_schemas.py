@@ -8,6 +8,7 @@ class TelegramUserProfile(Base):
 	telegram_firstname = sa.Column(sa.String, nullable=False)
 	telegram_lastname = sa.Column(sa.String)
 
+
 # class UserProfile(Base):
 # 	pass
 

@@ -6,6 +6,9 @@ authors = ["synalice <nikita.nikita.krasnov@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
+SQLAlchemy = "^1.4.31"
+python-dotenv = "^0.19.2"
+aiogram = "^2.18"
 
 [tool.poetry.dev-dependencies]
 

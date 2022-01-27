@@ -14,8 +14,8 @@ def register_new_user(user_id, first_name, last_name):
     session = Session()
     user = (
         session.query(TelegramUserProfile)
-            .filter(TelegramUserProfile.telegram_id == user_id)
-            .one_or_none()
+        .filter(TelegramUserProfile.telegram_id == user_id)
+        .one_or_none()
     )
 
     if not user:

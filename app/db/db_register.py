@@ -1,17 +1,27 @@
-import asyncio
+import sqlalchemy as sa
+from sqlalchemy.orm import Session
 
-from sqlalchemy.exc import IntegrityError
-from app.db.db_init import *
 from app.db.db_schemas import TelegramUserProfile
-from concurrent.futures import ThreadPoolExecutor
-from app.utils import make_async
-
-db_thead_pool = ThreadPoolExecutor(max_workers=32)
 
 
-@make_async(executor=db_thead_pool)
+class ThingOne(object):
+    def go(self, session):
+        session.query(FooBar).update({"x": 5})
+
+
+class ThingTwo(object):
+    def go(self, session):
+        session.query(Widget).update({"q": 18})
+
+
+def run_my_program():
+    with Session() as session:
+        with session.begin():
+            ThingOne().go(session)
+            ThingTwo().go(session)
+
+
 def register_new_user(user_id, first_name, last_name):
-    session = Session()
     user = (
         session.query(TelegramUserProfile)
         .filter(TelegramUserProfile.telegram_id == user_id)
@@ -24,8 +34,11 @@ def register_new_user(user_id, first_name, last_name):
             telegram_firstname=first_name,
             telegram_lastname=last_name,
         )
-        session.add(user)
-        session.commit()
-
-    session.close()
     return user
+
+
+def run_my_program():
+    with Session() as session:
+        with session.begin():
+            ThingOne().go(session)
+            ThingTwo().go(session)

@@ -2,7 +2,6 @@ import asyncio
 
 import sqlalchemy.ext.asyncio as sa_async
 import sqlalchemy as sa
-
 from app.config import (
     DB_NAME,
     DB_DRIVER,
@@ -20,6 +19,7 @@ async def async_main():
         echo=False,
     )
     metadata_obj = sa.MetaData()
+
 
 asyncio.run(async_main())
 # Session = sessionmaker(bind=engine)

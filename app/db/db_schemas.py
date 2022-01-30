@@ -1,4 +1,8 @@
-from app.db.db_init import *
+import sqlalchemy as sa
+from sqlalchemy.ext.declarative import declarative_base
+
+
+Base = declarative_base()
 
 
 class TelegramUserProfile(Base):
@@ -6,15 +10,4 @@ class TelegramUserProfile(Base):
     telegram_id = sa.Column(sa.Integer, primary_key=True)
     telegram_firstname = sa.Column(sa.String, nullable=False)
     telegram_lastname = sa.Column(sa.String)
-    # Not sure if simply adding Index right here will be enough to do something. I hope it will.
-    sa.Index(
-        telegram_id, unique=True
-    )  # Not sure if unique=True is needed since telegram_id is pk.
-
-
-# class UserProfile(Base):
-# 	pass
-
-# TODO: add other tables later
-
-# Base.metadata.create_all(engine)
+    sa.Index(telegram_id, unique=True)

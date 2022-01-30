@@ -1,11 +1,13 @@
 import os
+
 from dotenv import dotenv_values
 
-
-config = {**dotenv_values(".env"), **os.environ}
+# .env should be in root directory - /telegram_bot_mmo/.env
+config = {**dotenv_values("../.env"), **os.environ}
 
 BOT_API_TOKEN = config.get("BOT_API_TOKEN")
 DB_NAME = config.get("DB_NAME")
+DB_DRIVER = config.get("DB_DRIVER")
 DB_LOGIN = config.get("DB_LOGIN")
 DB_PASSWORD = config.get("DB_PASSWORD")
 DB_HOST = config.get("DB_HOST")

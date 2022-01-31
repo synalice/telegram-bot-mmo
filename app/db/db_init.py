@@ -3,8 +3,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import sessionmaker
 
 from app.config import (
-    DB_NAME,
-    DB_DRIVER,
+    DB_NAME_N_DRIVER,
     DB_LOGIN,
     DB_PASSWORD,
     DB_HOST,

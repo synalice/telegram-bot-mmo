@@ -14,7 +14,7 @@ from app.config import (
 
 
 engine = sa_async.create_async_engine(
-    f"{DB_NAME}{DB_DRIVER}://{DB_LOGIN}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_DATABASE}",
+    f"{DB_NAME_N_DRIVER}://{DB_LOGIN}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_DATABASE}",
     echo=True,
 )
 

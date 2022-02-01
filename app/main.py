@@ -2,7 +2,7 @@ from aiogram import Bot, Dispatcher, types
 from aiogram.utils import executor
 
 from app.config import BOT_API_TOKEN
-from app.db.db_register import register_new_user
+from app.services.users import register_new_user
 
 
 bot = Bot(token=BOT_API_TOKEN)

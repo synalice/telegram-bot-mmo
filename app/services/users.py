@@ -10,8 +10,7 @@ async def register_new_user(user_id, first_name, last_name):
             TelegramUserProfile.telegram_id == user_id
         )
         user = (await session.execute(querry_user)).scalars().first()
-    if not user:
-        async with async_session() as session:
+        if not user:
             user = TelegramUserProfile(
                 telegram_id=user_id,
                 telegram_firstname=first_name,

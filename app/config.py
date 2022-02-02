@@ -24,3 +24,13 @@ DB_HOST="localhost"
 DB_PORT="5432"
 DB_DATABASE="database_name"
 """
+
+"""
+You can pass in these environment variables into docker container like this:
+$ docker run --env-file .docker-env image_name
+
+Keep in mind that values of variables must be without quotation marks.
+If your .env should look like this: VAR="value"
+Your .docker-env in other hand should look like this: VAR=value
+"""
+# TODO: Find a way to make it be all in one file.

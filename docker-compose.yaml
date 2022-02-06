@@ -1,0 +1,30 @@
+# For this compose file to work you must already have an existing postgres database at ../bot_db/postgres_data
+# In .env file your DB_HOST should be equal db - the same as the name of the service in compose file.
+# DB_PASSWORD env should equal to the password you passed in as the POSTGRES_PASSWORD env variable
+# when creating a database the first time.
+version: "3.3"
+
+networks:
+  test:
+    driver: bridge
+
+
+services:
+  db:
+    networks:
+      - test
+    image: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - ../bot_db/postgres_data:/var/lib/postgresql/data
+
+
+  app:
+    networks:
+      - test
+    build: .
+    env_file:
+      - .env
+    depends_on:
+      - db

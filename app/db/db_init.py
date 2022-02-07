@@ -4,21 +4,11 @@ import sqlalchemy.ext.asyncio as sa_async
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import sessionmaker
 
-from app.config import (
-    DB_NAME_N_DRIVER,
-    DB_LOGIN,
-    DB_PASSWORD,
-    DB_HOST,
-    DB_PORT,
-    DB_DATABASE,
-)
+from app.config import DB_CONN_STR
 from app.db.db_schemas import Base
 
 
-engine = sa_async.create_async_engine(
-    f"{DB_NAME_N_DRIVER}://{DB_LOGIN}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_DATABASE}",
-    echo=True,
-)
+engine = sa_async.create_async_engine(f"{DB_CONN_STR}", echo=True)
 
 
 async def init_db():

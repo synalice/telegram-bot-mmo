@@ -2,7 +2,8 @@ FROM python:3.8
 
 
 COPY app telegram_bot_mmo/app
-COPY poetry.lock pyproject.toml telegram_bot_mmo/
+COPY alembic telegram_bot_mmo/alembic
+COPY poetry.lock pyproject.toml alembic.ini telegram_bot_mmo/
 
 WORKDIR telegram_bot_mmo/
 ENV PYTHONPATH=${PYTHONPATH}:${PWD}

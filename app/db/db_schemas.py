@@ -6,7 +6,7 @@ from sqlalchemy.ext.declarative import declarative_base
 Base = declarative_base()
 
 
-class TelegramUserProfile(Base):
+class TelegramProfile(Base):
     __tablename__ = 'telegram_profile'
     telegram_id = sa.Column(sa.Integer, primary_key=True)
     telegram_firstname = sa.Column(sa.String, nullable=False)

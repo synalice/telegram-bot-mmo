@@ -28,3 +28,5 @@ services:
       - .env
     depends_on:
       - db
+    volumes:
+      - ./alembic:/telegram_bot_mmo/alembic

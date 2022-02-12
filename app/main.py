@@ -17,7 +17,7 @@ async def start_command(message: types.Message):
         message.from_user.last_name,
     )
     await message.answer(
-        f"{user.telegram_id, user.telegram_firstname, user.telegram_lastname}"
+        f"{user.id, user.telegram_firstname, user.telegram_lastname}"
     )
 
 

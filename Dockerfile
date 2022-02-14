@@ -1,4 +1,4 @@
-FROM python:3.8
+FROM python:3.9
 
 
 COPY app telegram_bot_mmo/app
@@ -10,4 +10,5 @@ ENV PYTHONPATH=${PYTHONPATH}:${PWD}
 RUN pip install poetry
 RUN poetry install
 
-CMD poetry run python app/main.py
+ENTRYPOINT ["poetry", "run", "python"]
+CMD ["app/main.py"]

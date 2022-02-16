@@ -6,6 +6,7 @@ from sqlalchemy import engine_from_config
 from sqlalchemy import pool
 from sqlalchemy.ext.asyncio import AsyncEngine
 
+from app.config import DB_CONN_STR
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -17,7 +18,6 @@ fileConfig(config.config_file_name)
 
 # this will overwrite the ini-file sqlalchemy.url path
 # with the path given in the config of the main code
-from app.config import DB_CONN_STR
 
 config.set_main_option("sqlalchemy.url", DB_CONN_STR)
 

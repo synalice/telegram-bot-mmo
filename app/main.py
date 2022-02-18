@@ -16,7 +16,7 @@ async def start_command(message: types.Message):
         message.from_user.first_name,
         message.from_user.last_name,
     )
-    if not user_exists
+    if not user_exists:
         answer_message = f"{user.id, user.telegram_firstname, user.telegram_lastname}"
         await message.answer(answer_message)
     elif user_exists:

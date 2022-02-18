@@ -17,7 +17,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - ../bot_db/postgres_data:/var/lib/postgresql/data
+      - ../bot-db/postgres_data:/var/lib/postgresql/data
 
 
   app:
@@ -29,4 +29,4 @@ services:
     depends_on:
       - db
     volumes:
-      - ./alembic:/telegram_bot_mmo/alembic
+      - ./alembic:/telegram-bot-mmo/alembic

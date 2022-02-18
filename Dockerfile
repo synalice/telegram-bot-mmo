@@ -1,10 +1,10 @@
 FROM python:3.9
 
 
-COPY poetry.lock pyproject.toml alembic.ini telegram_bot_mmo/
-WORKDIR telegram_bot_mmo/
+COPY poetry.lock pyproject.toml alembic.ini telegram-bot-mmo/
+WORKDIR telegram-bot-mmo/
 RUN pip install poetry
-RUN poetry install
+RUN poetry install --no-root
 
 COPY app app
 

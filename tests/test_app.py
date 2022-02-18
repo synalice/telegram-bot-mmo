@@ -1,4 +1,4 @@
-from app import __version__
+from telegram_bot_mmo import __version__
 
 
 def test_version():

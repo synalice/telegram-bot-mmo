@@ -4,8 +4,8 @@ import sqlalchemy.ext.asyncio as sa_async
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import sessionmaker
 
-from app.config import DB_CONN_STR
-from app.db.db_schemas import Base
+from telegram_bot_mmo.config import DB_CONN_STR
+from telegram_bot_mmo.db.db_schemas import Base
 
 
 engine = sa_async.create_async_engine(f"{DB_CONN_STR}", echo=True)

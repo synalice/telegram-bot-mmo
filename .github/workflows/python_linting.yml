@@ -1,4 +1,4 @@
-name: PyTest
+name: python_linting
 
 on:
   push:

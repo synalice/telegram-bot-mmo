@@ -7,7 +7,7 @@ on:
     branches: [ main, feat/workflows ]
 
 jobs:
-  test:
+  install-poetry:
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
@@ -22,3 +22,9 @@ jobs:
           path: ~/.cache/pypoetry/virtualenvs
           key: ${{ runner.os }}-poetry-${{ hashFiles('poetry.lock') }}
       - run: poetry --version
+  
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: cclauss/Find-Python-syntax-errors-action@master

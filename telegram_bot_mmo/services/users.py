@@ -1,7 +1,7 @@
 import sqlalchemy as sa
 
-from app.db.db_init import async_session
-from app.db.db_schemas import TelegramProfile
+from telegram_bot_mmo.db.db_init import async_session
+from telegram_bot_mmo.db.db_schemas import TelegramProfile
 
 
 async def register_new_user(user_id, first_name, last_name):

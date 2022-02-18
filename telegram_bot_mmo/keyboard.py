@@ -1,4 +1,3 @@
-# Импорт модулей для клавиатуры
 from aiogram.types import KeyboardButton, ReplyKeyboardRemove, ReplyKeyboardMarkup
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 

@@ -6,12 +6,12 @@ WORKDIR telegram-bot-mmo/
 RUN pip install poetry
 RUN poetry install --no-root
 
-COPY app app
+COPY telegram_bot_mmo telegram_bot_mmo
 
 ENV PYTHONPATH=${PYTHONPATH}:${PWD}
 
 ENTRYPOINT ["poetry", "run", "python"]
-CMD ["app/main.py"]
+CMD ["telegram_bot_mmo/main.py"]
 
 # This line is for debugging purposes. Uncomment if you need the container to run forever so that you can exec into it.
 # ONLY use this for debugging purposes.

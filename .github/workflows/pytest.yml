@@ -24,6 +24,7 @@ jobs:
       - run: poetry --version
   
   lint:
+    needs: install-poetry
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

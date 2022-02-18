@@ -11,12 +11,12 @@ dp = Dispatcher(bot)
 
 @dp.message_handler(commands=["start"])
 async def start_command(message: types.Message):
-    user_exists, user = await register_new_user(
+    user_exists, user =      await register_new_user(
         message.from_user.id,
         message.from_user.first_name,
         message.from_user.last_name,
     )
-    if not user_exists:
+    if not user_exists
         answer_message = f"{user.id, user.telegram_firstname, user.telegram_lastname}"
         await message.answer(answer_message)
     elif user_exists:
